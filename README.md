@@ -1,4 +1,4 @@
-# Curl-able Portfolio
+# My Portfolio
 
 A fun, interactive portfolio that can be accessed via curl command!
 
