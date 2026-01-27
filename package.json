@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-curl",
+  "version": "1.0.0",
+  "description": "A curl-able portfolio page",
+  "main": "server.js",
+  "scripts": {
+    "start": "bun run server.js",
+    "dev": "bun --watch server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "curl",
+    "ascii"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pdf-parse": "^2.4.5"
+  }
+}
