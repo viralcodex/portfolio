@@ -4,6 +4,9 @@ import type { Request, Response } from "express";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Serve static files from public directory
+app.use(express.static("public"));
+
 // ANSI Color Codes
 const colors = {
   reset: "\x1b[0m",
@@ -95,29 +98,19 @@ const data: PortfolioData = {
         "• Contributed to critical Adapter microservice to help customers reduce workload on data migration",
         "• Developed a feature in cross-team environment to synchronize case data model for AI training",
       ],
-      skills: [
-        "Angular",
-        "React.Js",
-        "Java(Spring Boot)",
-        "MySQL",
-        "Docker",
-        "Kubernetes",
-        "AWS",
-      ],
+      skills: ["Angular", "React.Js", "Java(Spring Boot)", "MySQL", "Docker", "Kubernetes", "AWS"],
     },
   ],
 
   projects: [
     {
       name: "Cloud Infrastructure Automation",
-      description:
-        "Automated deployment pipeline using Terraform, Docker, and Kubernetes",
+      description: "Automated deployment pipeline using Terraform, Docker, and Kubernetes",
       url: "https://github.com/aviralshukla/cloud-automation",
     },
     {
       name: "Full-Stack E-commerce Platform",
-      description:
-        "Modern e-commerce platform built with React, Node.js, and PostgreSQL",
+      description: "Modern e-commerce platform built with React, Node.js, and PostgreSQL",
       url: "https://github.com/aviralshukla/ecommerce-platform",
     },
     {
@@ -135,19 +128,14 @@ const data: PortfolioData = {
 
 // Helper function to strip ANSI codes for length calculation
 function stripAnsi(str: string): string {
+  // oxlint-disable-next-line no-control-regex
   return str.replace(/\x1b\[[0-9;]*m/g, "");
 }
 
 // Helper function to create box borders
-function createBox(
-  title: string,
-  content: string[],
-  width: number = 70,
-): string {
+function createBox(title: string, content: string[], width: number = 70): string {
   // Calculate box dimensions based on content
-  const maxLineLength = Math.max(
-    ...content.map((line) => stripAnsi(line).length),
-  );
+  const maxLineLength = Math.max(...content.map((line) => stripAnsi(line).length));
   const boxWidth = Math.max(width, maxLineLength + 4, title.length + 4);
 
   const leftBorder = `${colors.gray}│${colors.reset}`;
@@ -166,23 +154,33 @@ function createBox(
     return `${leftBorder} ${line}${rightPadding}${rightBorder}`;
   });
 
-  return [topBorder, emptyLine, ...contentLines, emptyLine, bottomBorder].join(
-    "\n",
+  return [topBorder, emptyLine, ...contentLines, emptyLine, bottomBorder].join("\n");
+}
+
+// Helper function to detect curl vs browser
+function isCurl(userAgent: string | undefined): boolean {
+  if (!userAgent) return false;
+  const ua = userAgent.toLowerCase();
+  return (
+    ua.includes("curl") || ua.includes("wget") || ua.includes("httpie") || ua.includes("ghostty")
   );
 }
 
 // Main page
 app.get("/", (req: Request, res: Response) => {
-  // Format work experience
+  // If browser request, redirect to static HTML
+  if (!isCurl(req.headers["user-agent"])) {
+    return res.redirect("/index.html");
+  }
+
+  // Format work experience for terminal
   const workContent: string[] = [];
   data.work.forEach((job) => {
     workContent.push(`${job.company} ${job.duration}`);
     workContent.push("");
     job.description.forEach((desc) => workContent.push(desc));
     workContent.push("");
-    workContent.push(
-      `${colors.italic}${colors.peach}Skills: ${job.skills.join(", ")}`,
-    );
+    workContent.push(`${colors.italic}${colors.peach}Skills: ${job.skills.join(", ")}`);
   });
 
   const output = `
@@ -208,6 +206,11 @@ ${createBox("Work Experience", workContent)}
 
 // Projects endpoint
 app.get("/projects", (req: Request, res: Response) => {
+  // If browser request, redirect to static HTML
+  if (!isCurl(req.headers["user-agent"])) {
+    return res.redirect("/projects.html");
+  }
+
   let output = `\n${banner}\n\n  ${colors.brightYellow}Projects${colors.reset}\n\n`;
 
   data.projects.forEach((project, index) => {
@@ -226,6 +229,11 @@ app.get("/json", (req: Request, res: Response) => {
 
 // Help endpoint
 app.get("/help", (req: Request, res: Response) => {
+  // If browser request, redirect to static HTML
+  if (!isCurl(req.headers["user-agent"])) {
+    return res.redirect("/help.html");
+  }
+
   const output = `
 ${banner}
 
