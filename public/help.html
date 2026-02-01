@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help - Aviral Shukla</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body class="px-4 md:px-6 max-w-4xl mx-auto">
+    <div id="nav-placeholder"></div>
+    <script src="/nav.js"></script>
+
+    <h1 class="text-xl md:text-2xl font-bold mb-6 terminal-line">Help</h1>
+
+    <div class="mb-6 md:mb-8">
+      <h2 class="text-lg md:text-xl font-bold mb-4 text-custom-cyan">Available Endpoints</h2>
+      <div class="ml-2 md:ml-4 space-y-2 text-sm md:text-base">
+        <div>
+          <code class="text-custom-cyan">GET /</code>
+          <span class="text-gray-400">- Main portfolio page with ASCII art</span>
+        </div>
+        <div>
+          <code class="text-custom-cyan">GET /projects</code>
+          <span class="text-gray-400">- Detailed list of projects</span>
+        </div>
+        <div>
+          <code class="text-custom-cyan">GET /json</code>
+          <span class="text-gray-400">- Portfolio data in JSON format</span>
+        </div>
+        <div>
+          <code class="text-custom-cyan">GET /help</code>
+          <span class="text-gray-400">- This help message</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-6 md:mb-8">
+      <h2 class="text-lg md:text-xl font-bold mb-4 text-custom-cyan">Usage Examples</h2>
+      <div class="ml-2 md:ml-4 space-y-2 text-xs md:text-sm">
+        <div>
+          <span class="terminal-prompt">$</span> <code class="text-peach">curl avrl.dev</code>
+        </div>
+        <div>
+          <span class="terminal-prompt">$</span>
+          <code class="text-peach">curl avrl.dev/projects</code>
+        </div>
+        <div>
+          <span class="terminal-prompt">$</span>
+          <code class="text-peach">curl avrl.dev/json | jq .</code>
+        </div>
+        <div>
+          <span class="terminal-prompt">$</span>
+          <code class="text-peach">curl -H "Accept: application/json" avrl.dev</code>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

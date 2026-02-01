@@ -1,6 +1,7 @@
 # My Portfolio
 
-A fun, interactive portfolio that can be accessed via curl command!
+A fun, interactive portfolio that can also be accessed via curl command!
+Inspired to build one by ysap.sh (Dave Eddy)! Yes I Suck At Programming XD.
 
 ## Setup
 
@@ -36,6 +37,7 @@ curl http://localhost:3000/help
 ## Customization
 
 Edit the `data` object in `server.js` to add your own:
+
 - Name and tagline
 - Contact information
 - Skills
@@ -47,6 +49,7 @@ You can also customize the ASCII banner by modifying the `banner` variable.
 ## Deployment
 
 Deploy to any Bun or Node.js hosting platform:
+
 - Vercel (supports Bun)
 - Railway (supports Bun)
 - Render
