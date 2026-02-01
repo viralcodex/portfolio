@@ -1,7 +1,7 @@
 # My Portfolio
 
 A fun, interactive portfolio that can also be accessed via curl command!
-Inspired to build one by ysap.sh (Dave Eddy)! Yes I Suck At Programming XD.
+Inspired to build one by [ysap](https://ysap.sh) (Dave Eddy)! Yes I Suck At Programming XD.
 
 ## Setup
 
