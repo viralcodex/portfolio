@@ -70,7 +70,7 @@ interface PortfolioData {
 const data: PortfolioData = {
   email: "aviral.shukla10152@gmail.com",
   github: "https://github.com/viralcodex",
-  linkedin: "https://linkedin.com/in/aviralshukla",
+  linkedin: "https://linkedin.com/in/aviralsukul",
 
   about: [
     `${colors.customCyan}${colors.bold}Software Engineer${colors.reset} with ${colors.customCyan}${colors.bold}3 years${colors.reset} of expertise in full-stack development.`,
