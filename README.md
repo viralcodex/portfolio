@@ -59,11 +59,5 @@ Deploy to any Bun or Node.js hosting platform:
 
 Make sure to set the `PORT` environment variable if required by your platform.
 
-## ASCII Art Tools
-
-- [patorjk.com/software/taag](https://patorjk.com/software/taag/) - ASCII text generator
-- [asciiart.eu](https://www.asciiart.eu/) - ASCII art collection
-
 ## License
-
 MIT
