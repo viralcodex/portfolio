@@ -4,9 +4,6 @@ import type { Request, Response } from "express";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from public directory
-app.use(express.static("public"));
-
 // ANSI Color Codes
 const colors = {
   reset: "\x1b[0m",
@@ -255,6 +252,8 @@ ${banner}
 
   res.type("text/plain").send(output);
 });
+
+app.use(express.static("public"));
 
 // Start server (only in development)
 if (process.env.NODE_ENV !== "production") {
