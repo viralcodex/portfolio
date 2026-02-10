@@ -101,24 +101,24 @@ const data: PortfolioData = {
 
   projects: [
     {
-      name: "Cloud Infrastructure Automation",
-      description: "Automated deployment pipeline using Terraform, Docker, and Kubernetes",
-      url: "https://github.com/aviralshukla/cloud-automation",
+      name: "GitDepSec",
+      description: "Visualize and fix project dependencies vulnerabilities with AI Powered Insights",
+      url: "https://github.com/viralcodex/gitdepsec",
     },
     {
-      name: "Full-Stack E-commerce Platform",
-      description: "Modern e-commerce platform built with React, Node.js, and PostgreSQL",
-      url: "https://github.com/aviralshukla/ecommerce-platform",
+      name: "Json-verifier CLI",
+      description: "CLI tool and NPM Package to parse and verify JSON files with end result reports and suggested fixes",
+      url: "https://github.com/viralcodex/json-verifier-cli",
     },
     {
-      name: "Real-time Analytics Dashboard",
-      description: "WebSocket-based dashboard for real-time data visualization",
-      url: "https://github.com/aviralshukla/analytics-dashboard",
+      name: "SAP Ecocycle",
+      description: "E2E web application using MERN stack and GraphQL, helping enterprises achieve sustainability goals",
+      url: "https://github.com/viralcodex/sap-ecocycle",
     },
     {
-      name: "Curl-able Portfolio",
-      description: "This interactive portfolio accessible via curl command",
-      url: "https://github.com/aviralshukla/portfolio",
+      name: "Open Source Contributions",
+      description: "Contributed to multiple repositories including SVGO, GitDiagram, and more",
+      url: "https://github.com/viralcodex/viralcodex",
     },
   ],
 };
