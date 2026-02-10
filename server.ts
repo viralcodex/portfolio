@@ -255,13 +255,32 @@ ${banner}
 
 app.use(express.static("public"));
 
-// Start server (only in development)
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => {
-    console.log(`Portfolio server running on http://localhost:${PORT}`);
-    console.log(`Try: curl http://localhost:${PORT}`);
+// Helper function to find an available port
+async function findAvailablePort(startPort: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const testServer = app.listen(startPort, () => {
+      const port = (testServer.address() as any).port;
+      testServer.close(() => resolve(port));
+    }).on('error', (err: NodeJS.ErrnoException) => {
+      if (err.code === 'EADDRINUSE') {
+        resolve(findAvailablePort(startPort + 1));
+      } else {
+        reject(err);
+      }
+    });
   });
 }
 
-// Export for Vercel
+// Start server (only in development)
+if (process.env.NODE_ENV !== "production") {
+  findAvailablePort(Number(PORT)).then((port) => {
+    app.listen(port, () => {
+      console.log(`Portfolio server running on http://localhost:${port}`);
+      console.log(`Try: curl http://localhost:${port}`);
+    });
+  }).catch((err) => {
+    console.error('Failed to start server:', err);
+  });
+}
+
 export default app;
