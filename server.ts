@@ -224,6 +224,63 @@ app.get("/json", (req: Request, res: Response) => {
   res.json(data);
 });
 
+// Blog endpoint
+app.get("/blog", (req: Request, res: Response) => {
+  // If browser request, redirect to static HTML
+  if (!isCurl(req.headers["user-agent"])) {
+    return res.redirect("/blog.html");
+  }
+
+  const blogPosts = [
+    {
+      title: "State Machines In Computer Science",
+      date: "9 Feb 2026",
+      description: "A deep dive into state machines—why they appear in real systems like HTTP servers, how to model errors as states, and why explicit state transitions make systems easier to debug and extend.",
+      url: "https://x.com/avrldotdev/status/2020829608304693511",
+    },
+    {
+      title: "How to grow as an upcoming SWE in this AI Era",
+      date: "3 Feb 2026",
+      description: "Practical advice for students—avoid tutorial hell, build meaningful projects, use AI as a multiplier not replacement, and focus on fundamentals over trends.",
+      url: "https://x.com/avrldotdev/status/2018666509871264049",
+    },
+    {
+      title: "How Markdowns and JSONs became the abstraction of LLMs!",
+      date: "29 Jan 2026",
+      description: "A critique on the current state of LLM context management—from instructions.md to agents.md to skills.md—and why we need standardization.",
+      url: "https://x.com/avrldotdev/status/2016836777387147538",
+    },
+    {
+      title: "Will NVIDIA lose its top spot in AI Gold Rush?",
+      date: "25 Jan 2026",
+      description: "GPUs excel at training but inference is where Groq, Cerebras and SambaNova are challenging Nvidia's dominance.",
+      url: "https://x.com/avrldotdev/status/2015393506072858873",
+    },
+    {
+      title: "Cloud AI Inference will be DEAD soon. Why I think so?",
+      date: "21 Jan 2026",
+      description: "The unsustainable economics of AI—tokenomics, Ralph loops, enshittification, and why the industry may shift towards self-hosted open source models.",
+      url: "https://x.com/avrldotdev/status/2014017680005898242",
+    },
+    {
+      title: "From single Agentic SSE to multiple: how a SaaS feature evolved",
+      date: "18 Jan 2026",
+      description: "How I refactored a sequential workflow into parallel ecosystem-based processing with SSE—improving performance from 180s to 65s with better UX and fault tolerance.",
+      url: "https://x.com/avrldotdev/status/2012598678855586216",
+    },
+  ];
+
+  let output = `\n${banner}\n\n  ${colors.brightYellow}Blog${colors.reset}\n\n`;
+
+  blogPosts.forEach((post, index) => {
+    output += `  ${colors.customGreen}${index + 1}.${colors.reset} ${colors.brightMagenta}${post.title}${colors.reset}  ${colors.gray}${colors.italic}(${post.date})${colors.reset}\n`;
+    output += `     ${colors.white}${post.description}${colors.reset}\n`;
+    output += `     ${colors.customCyan}\x1b]8;;${post.url}\x1b\\${post.url}\x1b]8;;\x1b\\${colors.reset}\n\n`;
+  });
+
+  res.type("text/plain").send(output);
+});
+
 // Help endpoint
 app.get("/help", (req: Request, res: Response) => {
   // If browser request, redirect to static HTML
