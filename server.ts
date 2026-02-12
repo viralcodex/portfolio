@@ -191,10 +191,10 @@ ${createBox("Work Experience", workContent)}
 
   ${colors.brightYellow}URLs:${colors.reset}
   
-  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.dev${colors.reset}           ${colors.customCyan}${colors.italic}Get this page${colors.reset}
-  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.dev/projects${colors.reset}  ${colors.customCyan}${colors.italic}View detailed projects${colors.reset}
-  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.dev/json${colors.reset}      ${colors.customCyan}${colors.italic}Get data in JSON format${colors.reset}
-  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.dev/help${colors.reset}      ${colors.customCyan}${colors.italic}See all available endpoints${colors.reset}
+  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.vercel.dev${colors.reset}           ${colors.customCyan}${colors.italic}Get this page${colors.reset}
+  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.vercel.dev/projects${colors.reset}  ${colors.customCyan}${colors.italic}View detailed projects${colors.reset}
+  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.vercel.dev/json${colors.reset}      ${colors.customCyan}${colors.italic}Get data in JSON format${colors.reset}
+  ${colors.customGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.brightPeach}avrl.vercel.dev/help${colors.reset}      ${colors.customCyan}${colors.italic}See all available endpoints${colors.reset}
   \n
 `;
 
@@ -300,10 +300,10 @@ ${banner}
 
   ${colors.brightYellow}Usage Examples${colors.reset}
 
-  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.customCyan}avrl.dev${colors.reset}
-  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.customCyan}avrl.dev/projects${colors.reset}
-  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.customCyan}avrl.dev/json${colors.reset} ${colors.dim}|${colors.reset} ${colors.cyan}jq .${colors.reset}
-  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} -H "Accept: application/json" ${colors.customCyan}avrl.dev${colors.reset}
+  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.customCyan}avrl.vercel.dev${colors.reset}
+  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.customCyan}avrl.vercel.dev/projects${colors.reset}
+  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} ${colors.customCyan}avrl.vercel.dev/json${colors.reset} ${colors.dim}|${colors.reset} ${colors.cyan}jq .${colors.reset}
+  ${colors.brightGreen}$${colors.reset} ${colors.customGreen}curl${colors.reset} -H "Accept: application/json" ${colors.customCyan}avrl.vercel.dev${colors.reset}
   \n
 `;
 
